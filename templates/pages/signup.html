@@ -1,0 +1,50 @@
+{%extends "layout/head.html"%}
+{%block title%} Eddy | Signin {%endblock%}
+
+{%block content%}
+
+<div class="login_container">
+    <h1 class="intro">Create Your Account</h1>
+    {% with messages = get_flashed_messages()%}
+        {%if messages%}
+            <div class="flashes">
+                {%for msg in messages%}
+                <p>{{msg}}</p>
+                {%endfor%}
+            </div>
+        {%endif%}
+    {%endwith%}
+    <form action="/signup" method="post">
+
+        <div class="input">
+            <label for="email">Email</label>
+     
+             <input type="email" name="email" id="email" required>
+            <li>Required. Any email address that is not official</li>
+        </div>
+        <div class="input">
+            <label for="username">username</label>
+             <input type="text" name="username" id="username" required>
+            <li>Required. Any email address that is not official</li>
+        </div>
+        <div class="input">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+            <li>Your password must contain at least 8 characters.</li>
+            <li>Your password can’t be a commonly used password.</li>
+        </div>
+        <div class="input">
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" name="confirm_password" id="confirm_password" required>
+            <li>Enter the same password as before, for verification.</li>
+        </div>
+
+        <button class="btn login-btn" type="submit">Sign Up</button>
+    </form>
+
+    <hr>
+
+    <h3>Already Have Account?</h3>
+    <a href="/signin" class="btn"> Sign In Here</a>
+</div>
+{%endblock%}

@@ -1,0 +1,30 @@
+{%extends "layout/head.html"%}
+{%block title%} Eddy | Blogs {%endblock%}
+
+{%block content%}
+
+<section class="blog_container">
+    <h1 class="intro">Blogs Written</h1>
+
+  
+
+    <div class="blogs">
+        {% for blog in blogs_data%}
+        {%if blog.status == True%}
+            <div class="blog">
+                <div class="author">
+                    <h4>{{blog.author}}</h4>
+                    <P>{{ moment().format('MMMM Do') }}</P>
+                </div>
+
+                <h2>
+                    <a class="title" href="/blogs/blog/{{blog.id}}">
+                        {{blog.title}}
+                    </a>
+                </h2>
+            </div>
+            {%endif%}
+        {%endfor%}
+    </div>
+</section>
+{%endblock%}

@@ -1,0 +1,53 @@
+{%extends "layout/head.html"%}
+{%block title%} Eddy | Blog {%endblock%}
+
+{%block content%}
+
+<section class="single_blog">
+    <h1 class="intro">
+        Blog Details
+    </h1>
+
+    <div class="the_blog">
+        <h1 class="blog_title">{{blog.title}}</h1>
+
+        <div class="blog_body">
+            {{blog.body | safe}}
+        </div>
+    </div>
+
+    <hr>
+    
+    <h1 class="comment-title">Comments {{total}}</h1>
+    
+   
+    <div class="comments">
+        <div class="box">
+        {%if comments%}       
+    <div>
+        {%for comm in comments%}
+            <div class="comments_box">
+                <div class="comment">
+                    <p >{{comm.comment.post_comment}}</p>
+                    <span>{{ moment().fromNow(refresh=True) }}</span>
+                </div>
+           
+        <h4>@{{comm.commentor}}</h4>
+    </div>
+        {%endfor%}
+    
+    </div>
+
+        {%else%}
+
+        <p>No comments</p>
+
+        {%endif%}
+    </div>
+
+    <!-- <form action="/blogs/blog/{{blog.id}}" method="post">
+        <textarea id="comment" placeholder="Add Comment" name="comment"></textarea>
+        <button class="btn" type="submit">Submit</button>
+      </form> -->
+</section>
+{%endblock%}

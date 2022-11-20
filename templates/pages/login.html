@@ -1,0 +1,39 @@
+{%extends "layout/head.html"%}
+{%block title%} Eddy | login {%endblock%}
+
+{%block content%}
+
+<div class="login_container">
+    <h1 class="intro">Login</h1>
+    {% with messages = get_flashed_messages()%}
+        {%if messages%}
+        <div class="flashes">
+            {%for msg in messages%}
+            <p>{{msg}}</p>
+            {%endfor%}
+        </div>
+        {%endif%}
+    {%endwith%}
+    <form action="" method="post">
+
+        <div class="input">
+            <label for="email">
+                Email
+            </label>
+             <input type="email" name="email" id="email" required>
+          
+        </div>
+        <div class="input">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+        </div>
+
+        <button class="btn login-btn" type="submit">Login</button>
+    </form>
+
+    <hr>
+
+    <h3>Don't Have Account?</h3>
+    <a href="/signup" class="btn"> Sign Up Here</a>
+</div>
+{%endblock%}

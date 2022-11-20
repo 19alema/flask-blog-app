@@ -1,0 +1,26 @@
+{%extends "layout/head.html"%}
+{%block title%} Eddy | Create-Blog {%endblock%}
+
+{%block content%}
+
+<div class="container">
+    <h1 class="intro">
+        Create your post
+    </h1>
+    <p>Date: {{ moment().fromNow(refresh=True) }}</p>
+    <form action="/posts" method="post">
+
+        <div>
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title">
+        </div>
+        <textarea id="mytextarea" name="body"></textarea>
+        <div class="status">
+            <label for="status">Do You want to publish?</label>
+            <input type="checkbox" name="status" id="status">
+        </div>
+
+        <button class="btn" type="submit">Create Post</button>
+      </form>
+</div>
+{%endblock%}

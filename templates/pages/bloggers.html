@@ -1,0 +1,23 @@
+{% extends "layout/head.html"%}
+{%block title%}Eddy | Bloggers {%endblock%}
+
+{%block content%}
+
+<div class="bloggers">
+    <h1 class="intro">
+        Blog Authors
+    </h1>
+
+    <hr>
+
+    <div class="blogger_container">
+
+        {%for author in author%}
+         <div class="authors">
+            <a class="author_name" href="/bloggers/{{author.id}}/profile">{{author.name}}</a>
+            <span>@{{author.username}}</span>
+         </div>
+        {%endfor%}
+    </div>
+</div>
+{%endblock%}

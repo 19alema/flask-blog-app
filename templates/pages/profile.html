@@ -1,0 +1,37 @@
+{%extends "layout/head.html"%}
+{%block title%} Eddy | Profile {%endblock%}
+
+{%block content%}
+
+<h1 class="intro">Account</h1>
+
+{%for data in author_data%}
+<h2  class="username name">{{data.last_name}} {{data.first_name}}</h2>
+<p class="username name">@{{data.username}}</p>
+<p>{{data.bio}}</p>
+
+<hr>
+<div class="profile">
+    <h1 class="user_blogs">
+        Blogs
+    </h1>
+   <p>You have {{data.total}} Blogs</p>
+</div>
+
+    {%for blog in data.blogs%}
+        <div class="author_blog">
+            <h4>
+                <a class="title" href="/blogs/blog/{{blog.id}}">
+                    {{blog.title}}
+                </a>
+            </h4>
+            <a href="/blogs/{{blog.id}}/delete">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+            </a>
+        </div>
+    {%endfor%}
+
+
+{%endfor%}
+
+{%endblock%}

@@ -1,0 +1,39 @@
+{%extends "layout/head.html"%}
+{%block title%} Eddy | Profile {%endblock%}
+
+{%block content%}
+<h1 class="intro">Create Profile</h1>
+
+<hr>
+
+{% with messages = get_flashed_messages()%}
+{%if messages%}
+<div class="flashes">
+    {%for msg in messages%}
+    <p>{{msg}}</p>
+    {%endfor%}
+</div>
+{%endif%}
+{%endwith%}
+
+
+<form action="/blogger" method="post">
+    <div class="input">
+        <label for="first_email">First Name</label>
+ 
+         <input type="text" name="first_name" id="first_name" required>
+    </div>
+    <div class="input">
+        <label for="last_name">last_name</label>
+        <input type="text" name="last_name" id="last_name" required>
+     
+    </div>
+    <div class="input">
+        <label for="bio">Biography</label>
+     <textarea name="bio" id="bio" cols="30" rows="10"></textarea>
+    </div>
+    <button class="btn" type="submit">Create</button>
+</form>
+
+
+{%endblock%}
